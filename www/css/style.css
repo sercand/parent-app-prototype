@@ -83,28 +83,6 @@ button.button.button-full.button-calm.sidebyside.delmargin.downloadButton{
     background-repeat:repeat;
     background-position:center;
 }
-.card .facebook,
-.card .facebook a{
-    background-color: blue;
-    text-decoration: none;
-    color: rgba(245, 245, 245, 0.83);
-}
-.card .facebook i{
-    padding-right: 5%;
-}
-.card .googleplus i {
-    padding-right: 2%;
-}
-.card .googleplus,
-.card .googleplus a{
-    background-color: red;
-    text-decoration: none;
-    color: rgb(245, 245, 245);
-}
-
-.card .email {
-
-}
 .padlogin .card {
     margin-left: auto;
     margin-right: auto;
