@@ -1,5 +1,5 @@
-
-var nextStatPage="";
+var nextStatPage = "";
+var nextWikiPage = "";
 
 angular.module('starter.controllers', [])
 
@@ -9,25 +9,126 @@ angular.module('starter.controllers', [])
             child: "Zafer Elcik"
         };
 
-        new Chartist.Line('#chart1', {
-            labels: [1, 2, 3, 4],
-            series: [[100, 120, 180, 200]]
-        });
-
-        // Initialize a Line chart in the container with the ID chart2
-        new Chartist.Bar('#chart2', {
-            labels: [1, 2, 3, 4, 5, 6, 7],
-            series: [[5, 2, 8, 3, 6, 7, 4]]
-        });
         $scope.statGo = function (str) {
-
-            nextStatPage=str;
+            nextStatPage = str;
             $state.go('tab.stat');
 
         };
     })
 
     .controller('StatCtrl', function ($scope) {
+        var statsboiler = [
+            {
+                code: 'total',
+                borlorp: 'line',
+                labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+                series: [
+                    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+                ],
+                horizontalBars: true,
+                name: 'Total Playing Chart',
+                description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
+                "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
+                "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
+            },
+            {
+                code: 'baw',
+                borlorp: 'bar',
+                labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+                series: [
+                    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+                ],
+                horizontalBars: true,
+                name: 'Best and Worst Games',
+                description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
+                "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
+                "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
+            },
+            {
+                code: 'compare',
+                borlorp: 'pie',
+                labels: ['Bananas', 'Apples', 'Grapes'],
+                series: [20, 15, 40],
+                horizontalBars: true,
+                name: 'Compare Games',
+                description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
+                "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
+                "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
+            },
+            {
+                code: 'allstat',
+                borlorp: 'bar',
+                labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+                series: [
+                    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+                ],
+                horizontalBars: true,
+                name: 'Total Playing Chart',
+                description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
+                "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
+                "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
+            },
+            {
+                code: 'matchit',
+                borlorp: 'bar',
+                labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+                series: [
+                    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+                ],
+                horizontalBars: true,
+                name: 'Total Playing Chart',
+                description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
+                "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
+                "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
+            }];
+
+        function finder(){
+            for(i in statsboiler){
+                if(nextStatPage==statsboiler[i].code){
+                    break;
+                }
+
+            }
+            return i;
+        };
+
+        var ourchart = finder();
+
+        $scope.info = statsboiler[ourchart];
+        var data = {
+            labels: statsboiler[ourchart].labels,
+            series: statsboiler[ourchart].series
+        };
+        if(statsboiler[ourchart].borlorp=='line') {
+            new Chartist.Line('.ct-chart', data);
+        }
+        if(statsboiler[ourchart].borlorp=='bar') {
+            new Chartist.Bar('.ct-chart', data);
+        }
+        if(statsboiler[ourchart].borlorp=='pie') {
+            new Chartist.Pie('.ct-chart', data);
+            var options = {
+                labelInterpolationFnc: function(value) {
+                    return value[0]
+                }
+            };
+
+            var responsiveOptions = [
+                ['screen and (min-width: 640px)', {
+                    chartPadding: 30,
+                    labelOffset: 100,
+                    labelDirection: 'explode',
+                    labelInterpolationFnc: function(value) {
+                        return value;
+                    }
+                }],
+                ['screen and (min-width: 1024px)', {
+                    labelOffset: 80,
+                    chartPadding: 20
+                }]
+            ];
+        }
+
 
     })
 
@@ -133,10 +234,34 @@ angular.module('starter.controllers', [])
     })
 
     .controller('WikiCtrl', function ($scope) {
-
+        $scope.wikiGo = function (str) {
+            nextStatPage = str;
+            $state.go('tab.wikipage');
+        };
     })
 
     .controller('WikiPageCtrl', function ($scope) {
+        var statsboiler = [
+            {
+                code: 'total',
+                name: 'Total Playing Chart',
+                description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
+                "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
+                "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
+            }];
+
+        function finder(){
+            for(i in statsboiler){
+                if(nextStatPage==statsboiler[i].code){
+                    break;
+                }
+            }
+            return i;
+        };
+
+        var ourwiki = finder();
+
+        $scope.info = statsboiler[ourwiki];
 
     })
 

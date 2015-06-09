@@ -100,3 +100,6 @@ button.button.button-full.button-calm.sidebyside.delmargin.downloadButton{
     margin-right: 0px;
     margin-left: 0px;
 }
+.item-body p {
+    margin-top: 0px;
+}
