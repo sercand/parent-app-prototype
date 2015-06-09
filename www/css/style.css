@@ -9,3 +9,12 @@
 .bar .title {
     top: 8px;
 }
+.upper{
+    margin-bottom: 48px;
+    height: 40px;
+}
+
+.upper .tab-item{
+    top: -7px;
+    position: relative;
+}
