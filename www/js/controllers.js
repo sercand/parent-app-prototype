@@ -82,9 +82,9 @@ angular.module('starter.controllers', [])
                 "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
             }];
 
-        function finder(){
-            for(i in statsboiler){
-                if(nextStatPage==statsboiler[i].code){
+        function finder() {
+            for (i in statsboiler) {
+                if (nextStatPage == statsboiler[i].code) {
                     break;
                 }
 
@@ -99,16 +99,16 @@ angular.module('starter.controllers', [])
             labels: statsboiler[ourchart].labels,
             series: statsboiler[ourchart].series
         };
-        if(statsboiler[ourchart].borlorp=='line') {
+        if (statsboiler[ourchart].borlorp == 'line') {
             new Chartist.Line('.ct-chart', data);
         }
-        if(statsboiler[ourchart].borlorp=='bar') {
+        if (statsboiler[ourchart].borlorp == 'bar') {
             new Chartist.Bar('.ct-chart', data);
         }
-        if(statsboiler[ourchart].borlorp=='pie') {
+        if (statsboiler[ourchart].borlorp == 'pie') {
             new Chartist.Pie('.ct-chart', data);
             var options = {
-                labelInterpolationFnc: function(value) {
+                labelInterpolationFnc: function (value) {
                     return value[0]
                 }
             };
@@ -118,7 +118,7 @@ angular.module('starter.controllers', [])
                     chartPadding: 30,
                     labelOffset: 100,
                     labelDirection: 'explode',
-                    labelInterpolationFnc: function(value) {
+                    labelInterpolationFnc: function (value) {
                         return value;
                     }
                 }],
@@ -233,7 +233,7 @@ angular.module('starter.controllers', [])
         };
     })
 
-    .controller('WikiCtrl', function ($scope) {
+    .controller('WikiCtrl', function ($scope, $state) {
         $scope.wikiGo = function (str) {
             nextStatPage = str;
             $state.go('tab.wikipage');
@@ -241,18 +241,33 @@ angular.module('starter.controllers', [])
     })
 
     .controller('WikiPageCtrl', function ($scope) {
-        var statsboiler = [
+        var wikiboiler = [
             {
-                code: 'total',
-                name: 'Total Playing Chart',
-                description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
-                "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
-                "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
-            }];
+                code: 'nedir',
+                name: 'What is Autism Syndrome',
+                img: "img/autism.jpg",
+                description1: "Autism spectrum disorder (ASD) and autism are both general terms for a group of complex disorders of brain development. These disorders are characterized, in varying degrees, by difficulties in social interaction, verbal and nonverbal communication and repetitive behaviors. With the May 2013 publication of the DSM-5 diagnostic manual, all autism disorders were merged into one umbrella diagnosis of ASD. Previously, they were recognized as distinct subtypes, including autistic disorder, childhood disintegrative disorder, pervasive developmental disorder-not otherwise specified (PDD-NOS) and Asperger syndrome.",
+                description2: "Autism appears to have its roots in very early brain development. However, the most obvious signs of autism and symptoms of autism tend to emerge between 2 and 3 years of age. Autism Speaks continues to fund research on effective methods for earlier diagnosis, as early intervention with proven behavioral therapies can improve outcomes. Increasing autism awareness is a key aspect of this work and one in which our families and volunteers play an invaluable role."
+            },
+            {
+                code: 'neden',
+                name: 'Why We Should Use Ipad',
+                img: "img/app1.jpeg",
+                description1: "Autism spectrum disorder (ASD) and autism are both general terms for a group of complex disorders of brain development. These disorders are characterized, in varying degrees, by difficulties in social interaction, verbal and nonverbal communication and repetitive behaviors. With the May 2013 publication of the DSM-5 diagnostic manual, all autism disorders were merged into one umbrella diagnosis of ASD. Previously, they were recognized as distinct subtypes, including autistic disorder, childhood disintegrative disorder, pervasive developmental disorder-not otherwise specified (PDD-NOS) and Asperger syndrome.",
+                description2: "Autism appears to have its roots in very early brain development. However, the most obvious signs of autism and symptoms of autism tend to emerge between 2 and 3 years of age. Autism Speaks continues to fund research on effective methods for earlier diagnosis, as early intervention with proven behavioral therapies can improve outcomes. Increasing autism awareness is a key aspect of this work and one in which our families and volunteers play an invaluable role."
+            },
+            {
+                code: 'nedir',
+                name: 'How Can We Use This App for Self Learning',
+                img: "img/app1.jpeg",
+                description1: "Autism spectrum disorder (ASD) and autism are both general terms for a group of complex disorders of brain development. These disorders are characterized, in varying degrees, by difficulties in social interaction, verbal and nonverbal communication and repetitive behaviors. With the May 2013 publication of the DSM-5 diagnostic manual, all autism disorders were merged into one umbrella diagnosis of ASD. Previously, they were recognized as distinct subtypes, including autistic disorder, childhood disintegrative disorder, pervasive developmental disorder-not otherwise specified (PDD-NOS) and Asperger syndrome.",
+                description2: "Autism appears to have its roots in very early brain development. However, the most obvious signs of autism and symptoms of autism tend to emerge between 2 and 3 years of age. Autism Speaks continues to fund research on effective methods for earlier diagnosis, as early intervention with proven behavioral therapies can improve outcomes. Increasing autism awareness is a key aspect of this work and one in which our families and volunteers play an invaluable role."
+            }
+        ];
 
-        function finder(){
-            for(i in statsboiler){
-                if(nextStatPage==statsboiler[i].code){
+        function finder() {
+            for (i in wikiboiler) {
+                if (nextStatPage == wikiboiler[i].code) {
                     break;
                 }
             }
@@ -261,7 +276,7 @@ angular.module('starter.controllers', [])
 
         var ourwiki = finder();
 
-        $scope.info = statsboiler[ourwiki];
+        $scope.info = wikiboiler[ourwiki];
 
     })
 
