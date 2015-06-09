@@ -11,13 +11,13 @@
         <div class="slidemarket gameslide">
             <ion-slide-box does-continue="true" show-pager="true" auto-play="true">
                 <ion-slide ng-repeat="pictures in openGame.img">
-                    <div class="img1" style="background-image:url('pictures');"></div>
+                    <div class="img1" style="background-image:url({{pictures.slide}});"></div>
                 </ion-slide>
             </ion-slide-box>
 
         </div>
         <div>
-            <button class="button button-full button-calm sidebyside delmargin downloadButton">
+            <button class="button button-full button-calm sidebyside delmargin downloadButton" ng-click="openGame.link">
                 Download
             </button>
         </div>

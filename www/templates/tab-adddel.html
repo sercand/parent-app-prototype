@@ -23,7 +23,8 @@
                 <ion-slide-box does-continue="false" show-pager="false" auto-play="false">
                     <ion-slide ng-repeat="rows in chunkedData">
                         <div class="addgrid" ng-repeat="game in rows" ng-click="gameModule(game)">
-                            <img src="{{game.img[0]}}">
+                            <img src="{{game.logo}}">
+
                             <h3 class="text-center">{{game.name}}</h3>
 
 
@@ -42,10 +43,10 @@
             <div class="item item-body">
                 <ion-slide-box does-continue="false" show-pager="false" auto-play="false">
                     <ion-slide ng-repeat="rows in chunkedData">
-                        <div class="addgrid" ng-repeat="game in rows">
-                            <a href="{{game.link}}"  style="text-decoration: none"><img src="{{ game.img[1] }}">
-                                <h3 class="text-center">{{game.name}}</h3>
-                            </a>
+                        <div class="addgrid" ng-repeat="game in rows" ng-click="gameModule(game)">
+                            <img src="{{ game.logo }}">
+                            <h3 class="text-center">{{game.name}}</h3>
+
 
                         </div>
                     </ion-slide>
