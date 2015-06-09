@@ -55,6 +55,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.auth'])
                 }
             })
 
+            .state('tab.stat', {
+                url: '/stat',
+                views: {
+                    'tab-dash': {
+                        templateUrl: 'templates/stat-page.html',
+                        controller: 'StatCtrl'
+                    }
+                }
+            })
+
             .state('tab.wiki', {
                 url: '/wiki',
                 views: {
@@ -64,15 +74,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.auth'])
                     }
                 }
             })
-            .state('tab.wiki-article', {
-                url: '/wiki/:articleId',
+
+            .state('tab.wikipage', {
+                url: '/wpage',
                 views: {
                     'tab-wiki': {
-                        templateUrl: 'templates/wiki-detail.html',
-                        controller: 'WikiDetailCtrl'
+                        templateUrl: 'templates/wiki-page.html',
+                        controller: 'WikiPageCtrl'
                     }
                 }
             })
+
 
             .state('tab.adddel', {
                 url: '/adddel',

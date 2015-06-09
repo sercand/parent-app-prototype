@@ -1,6 +1,9 @@
+
+var nextStatPage="";
+
 angular.module('starter.controllers', [])
 
-    .controller('DashCtrl', function ($scope) {
+    .controller('DashCtrl', function ($scope, $state) {
         $scope.info = {
             name: "Sercan Degirmenci",
             child: "Zafer Elcik"
@@ -16,6 +19,16 @@ angular.module('starter.controllers', [])
             labels: [1, 2, 3, 4, 5, 6, 7],
             series: [[5, 2, 8, 3, 6, 7, 4]]
         });
+        $scope.statGo = function (str) {
+
+            nextStatPage=str;
+            $state.go('tab.stat');
+
+        };
+    })
+
+    .controller('StatCtrl', function ($scope) {
+
     })
 
 
@@ -123,73 +136,59 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('WikiDetailCtrl', function ($scope, $stateParams, Chats) {
-        $scope.chat = Chats.get($stateParams.chatId);
+    .controller('WikiPageCtrl', function ($scope) {
+
     })
 
     .controller('AddDelCtrl', function ($scope, $ionicModal) {
         var games = [
             {
                 link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
+                logo: "img/app0.jpg",
+                img: [{slide: "img/app0.jpg"}, {slide: "img/app0.jpg"}],
                 name: '0yun1',
                 description: "Bu super bir oyundur."
             },
             {
                 link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
+                logo: "img/app1.jpeg",
+                img: [{slide: "img/app1.jpeg"}, {slide: "img/app1.jpeg"}],
                 name: '0yun2',
                 description: "Bu super bir oyundur."
             },
             {
                 link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
+                logo: "img/app3.png",
+                img: [{slide: "img/app3.png"}, {slide: "img/app3.png"}],
                 name: '0yun3',
                 description: "Bu super bir oyundur."
             },
             {
                 link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
+                logo: "img/app2.png",
+                img: [{slide: "img/app2.png"}, {slide: "img/app2.png"}],
                 name: '0yun4',
                 description: "Bu super bir oyundur."
             },
             {
                 link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
+                logo: "img/app4.jpg",
+                img: [{slide: "img/app4.jpg"}, {slide: "img/app4.jpg"}],
                 name: '0yun5',
                 description: "Bu super bir oyundur."
             },
             {
                 link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
+                logo: "img/app5.jpg",
+                img: [{slide: "img/app5.jpg"}, {slide: "img/app5.jpg"}],
                 name: '0yun6',
                 description: "Bu super bir oyundur."
             },
             {
                 link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
+                logo: "img/app6.jpg",
+                img: [{slide: "img/app6.jpg"}, {slide: "img/app6.jpg"}],
                 name: '0yun7',
-                description: "Bu super bir oyundur."
-            },
-            {
-                link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
-                name: '0yun8',
-                description: "Bu super bir oyundur."
-            },
-            {
-                link: './#',
-                logo: "img/cover.jpg",
-                img: [{slide: "img/cover.jpg"}, {slide: "img/cover.jpg"}],
-                name: '0yun9',
                 description: "Bu super bir oyundur."
             }
         ];

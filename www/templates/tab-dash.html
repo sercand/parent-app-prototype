@@ -1,19 +1,29 @@
-<ion-view view-title="Statistics">
-  <ion-content class="padding headerup">
-    <h2 class="text-center">Hi {{info.name}}!</h2>
-    <h3 class="text-center">Your Child {{info.child}} Statistics</h3>
-    <div class="list card">
-      <div class="item item-divider">
-        Total Playing
-      </div>
-      <div class="ct-chart ct-golden-section" id="chart1"></div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">
-        Day by day playing stats
-      </div>
-      <div class="ct-chart ct-golden-section" id="chart2"></div>
-    </div>
-    <div class="freebox"></div>
-  </ion-content>
+<ion-view view-title="Otsimo">
+    <ion-content class="headerup">
+        <div class="list card fuller delmargin">
+            <h2 class="text-center">Hi {{info.name}}!</h2>
+            <h3 class="text-center">Your Child {{info.child}} Statistics</h3>
+        </div>
+        <div class="list fuller">
+
+            <div class="item item-divider">
+                General Statistics
+            </div>
+
+            <div class="item" ng-click="statGo('total')">Total Playing</div>
+            <div class="item" ng-click="statGo('baw')">Best and Worst</div>
+            <div class="item" ng-click="statGo('compare')">Compare Games</div>
+            <div class="item" ng-click="statGo('allstat')">All Games Stats</div>
+
+            <div class="item item-divider">
+                Specific Game Statistics
+            </div>
+
+            <div class="item" ng-click="statGo('matchit')">Match Items</div>
+            <div class="item" ng-click="statGo('matchcol')">Match Colors</div>
+            <div class="item" ng-click="statGo('ctone')">Choose The One</div>
+
+        </div>
+        <div class="freebox"></div>
+    </ion-content>
 </ion-view>

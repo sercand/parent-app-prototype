@@ -1,10 +1,4 @@
 /* Empty. Add your own CSS if you like */
-.modal {
-    top: 10%;
-    right: 20%;
-    bottom: 10%;
-    left: 20%;
-}
 .sidebyside{
     float: left;
 }
@@ -101,4 +95,8 @@ button.button.button-full.button-calm.sidebyside.delmargin.downloadButton{
 .logo-center{
     margin-left: auto;
     margin-right: auto;
+}
+.fuller{
+    margin-right: 0px;
+    margin-left: 0px;
 }
