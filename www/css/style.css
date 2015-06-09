@@ -1,4 +1,18 @@
 /* Empty. Add your own CSS if you like */
+.modal {
+    top: 10%;
+    right: 20%;
+    bottom: 10%;
+    left: 20%;
+}
+.sidebyside{
+    float: left;
+}
+button.button.button-full.button-calm.sidebyside.delmargin.downloadButton{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    height: 57px;
+}
 .delmargin{
     margin: 0px;
 }

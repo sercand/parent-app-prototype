@@ -37,17 +37,17 @@ angular.module('starter.controllers', [])
         $scope.chat = Chats.get($stateParams.chatId);
     })
 
-    .controller('AddDelCtrl', function ($scope) {
+    .controller('AddDelCtrl', function ($scope, $ionicModal) {
         var games = [
-            {link: './#', img: "img/cover.jpg", name: 'oyun1'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun2'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun3'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun4'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun5'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun6'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun7'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun8'},
-            {link: './#', img: "img/cover.jpg", name: 'oyun9'}
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun1', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun2', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun3', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun4', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun5', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun6', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun7', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun8', description: "Bu süper bir oyundur."},
+            {link: './#', img: ["img/cover.jpg","img/cover.jpg"], name: '0yun9', description: "Bu süper bir oyundur."}
         ];
 
         function chunk(arr, size) {
@@ -60,6 +60,23 @@ angular.module('starter.controllers', [])
         }
 
         $scope.chunkedData = chunk(games, 4);
+
+        $ionicModal.fromTemplateUrl('templates/adddel-app.html', {
+            scope: $scope
+        }).then(function (modal) {
+            $scope.gameModal = modal;
+        });
+
+        $scope.closeGameModule = function () {
+            $scope.gameModal.hide();
+        };
+
+        // Open the login modal
+        $scope.gameModule = function (objj) {
+            $scope.gameModal.show();
+            $scope.openGame = objj;
+        };
+
     })
 
     .controller('MyAppsCtrl', function ($scope) {

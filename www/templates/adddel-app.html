@@ -1,0 +1,37 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">{{openGame.name}}</h1>
+
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeGameModule()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="headerup">
+
+        <div class="slidemarket gameslide">
+            <ion-slide-box does-continue="true" show-pager="true" auto-play="true">
+                <ion-slide ng-repeat="pictures in openGame.img">
+                    <div class="img1" style="background-image:url('pictures');"></div>
+                </ion-slide>
+            </ion-slide-box>
+
+        </div>
+        <div>
+            <button class="button button-full button-calm sidebyside delmargin downloadButton">
+                Download
+            </button>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class="list card button-full delmargin autoheight">
+            <div class="item item-divider">
+                Description
+            </div>
+
+            <div class="item item-body">
+                <p>{{openGame.description}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>
