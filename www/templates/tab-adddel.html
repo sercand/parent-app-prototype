@@ -1,17 +1,65 @@
-<ion-view view-title="Account">
-  <ion-content class="headerup">
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
-  </ion-content>
-  <div class="tabs upper">
-    <a class="tab-item" href="#/tab/adddel">
-      Marketplace
-    </a>
-    <a class="tab-item" href="#/tab/myapps">
-      MyApps
-    </a>
-  </div>
+<ion-view view-title="Marketplace">
+    <ion-content class="headerup">
+        <div class="slidemarket">
+            <ion-slide-box does-continue="true" show-pager="true" auto-play="true">
+                <ion-slide>
+                    <div class="img1" style="background-image:url('../img/cover.jpg');"></div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="img1" style="background-image:url('../img/cover.jpg');"></div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="img1" style="background-image:url('../img/cover.jpg');"></div>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        <div class="list card button-full delmargin autoheight">
+
+            <div class="item item-divider">
+                The Apps We Picked
+            </div>
+
+            <div class="item item-body">
+                <ion-slide-box does-continue="false" show-pager="false" auto-play="false">
+                    <ion-slide ng-repeat="rows in chunkedData">
+                        <div class="addgrid" ng-repeat="game in rows">
+                            <a href="{{game.link}}"  style="text-decoration: none"><img src="{{game.img}}">
+                            <h3 class="text-center">{{game.name}}</h3>
+                            </a>
+
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+        </div>
+
+        <div class="list card button-full delmargin autoheight">
+
+            <div class="item item-divider">
+                The Apps User Love
+            </div>
+
+            <div class="item item-body">
+                <ion-slide-box does-continue="false" show-pager="false" auto-play="false">
+                    <ion-slide ng-repeat="rows in chunkedData">
+                        <div class="addgrid" ng-repeat="game in rows">
+                            <a href="{{game.link}}"  style="text-decoration: none"><img src="{{game.img}}">
+                                <h3 class="text-center">{{game.name}}</h3>
+                            </a>
+
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+        </div>
+        <div class="freeplus"></div>
+    </ion-content>
+    <div class="tabs upper">
+        <a class="tab-item" href="#/tab/adddel">
+            Marketplace
+        </a>
+        <a class="tab-item" href="#/tab/myapps">
+            MyApps
+        </a>
+    </div>
 </ion-view>

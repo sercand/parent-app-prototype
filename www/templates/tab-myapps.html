@@ -1,10 +1,11 @@
-<ion-view view-title="Account">
+<ion-view view-title="My Apps">
   <ion-content class="headerup">
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
+    <ion-toggle ng-repeat="item in games" ng-model="item.enableFriends">
+        {{item.name}}
     </ion-toggle>
     </ion-list>
+    <div class="freeplus"></div>
   </ion-content>
   <div class="tabs upper">
     <a class="tab-item" href="#/tab/adddel">

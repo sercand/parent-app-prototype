@@ -1,4 +1,10 @@
 /* Empty. Add your own CSS if you like */
+.delmargin{
+    margin: 0px;
+}
+.autoheight{
+    height: auto;
+}
 .bar{
     height: 60px;
 }
@@ -9,6 +15,18 @@
 .bar .title {
     top: 8px;
 }
+.slider{
+    height: 100%;
+}
+.slider .img1 {
+    background-repeat:no-repeat;
+    background-size:cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-position:center;
+    height: 100%;
+}
 .upper{
     margin-bottom: 48px;
     height: 40px;
@@ -17,4 +35,30 @@
 .upper .tab-item{
     top: -7px;
     position: relative;
+}
+.freebox{
+    height: 60px;
+}
+.freeplus{
+    height: 115px;
+}
+.slidemarket{
+    height: 240px;
+}
+.addgrid{
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 25%;
+    height: auto;
+    float: left;
+    height: auto;
+}
+.addgrid img{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
 }
