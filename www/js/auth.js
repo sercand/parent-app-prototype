@@ -178,6 +178,61 @@ angular.module('starter.auth', [])
             }
         }
 
+        authService.getAllAnswers = function (id, done) {
+            $http.get(authService.apiUrl + '/stat/allanswers/' + id)
+                .success(function (data) {
+                    if (data.success) {
+                        done(null, data.data);
+                    } else {
+                        done(data.message);
+                    }
+                })
+                .error(function (data) {
+                    return done(data);
+                });
+        };
+        authService.getAllAnswersByGame = function (id, game_id, done) {
+            $http.get(authService.apiUrl + '/stat/allanswers/' + id + '/' + game_id)
+                .success(function (data) {
+                    if (data.success) {
+                        done(null, data.data);
+                    } else {
+                        done(data.message);
+                    }
+                })
+                .error(function (data) {
+                    return done(data);
+                });
+        };
+
+        authService.getPlayTime = function (id, done) {
+            $http.get(authService.apiUrl + '/stat/playtime/' + id)
+                .success(function (data) {
+                    if (data.success) {
+                        done(null, data.data);
+                    } else {
+                        done(data.message);
+                    }
+                })
+                .error(function (data) {
+                    return done(data);
+                });
+        };
+
+        authService.getPlayTimeByGame = function (id, game_id, done) {
+            $http.get(authService.apiUrl + '/stat/playtime/' + id + '/' + game_id)
+                .success(function (data) {
+                    if (data.success) {
+                        done(null, data.data);
+                    } else {
+                        done(data.message);
+                    }
+                })
+                .error(function (data) {
+                    return done(data);
+                });
+        };
+
         authService.changeGameState = function (gameid, newState, done) {
             var postData = {
                 game_id: gameid

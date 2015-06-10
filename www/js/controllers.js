@@ -17,8 +17,8 @@ angular.module('starter.controllers', [])
     })
 
     .controller('StatCtrl', function ($scope) {
-        var statsboiler = [
-            {
+        var statsboiler = {
+            total: {
                 code: 'total',
                 borlorp: 'line',
                 labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
                 "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
                 "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
             },
-            {
+            baw: {
                 code: 'baw',
                 borlorp: 'bar',
                 labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
                 "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
                 "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
             },
-            {
+            compare: {
                 code: 'compare',
                 borlorp: 'pie',
                 labels: ['Bananas', 'Apples', 'Grapes'],
@@ -55,7 +55,7 @@ angular.module('starter.controllers', [])
                 "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
                 "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
             },
-            {
+            allstat: {
                 code: 'allstat',
                 borlorp: 'bar',
                 labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
                 "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
                 "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
             },
-            {
+            matchit: {
                 code: 'matchit',
                 borlorp: 'bar',
                 labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -80,32 +80,23 @@ angular.module('starter.controllers', [])
                 description: "Chartist An individual who uses charts or graphs of a securitys historical prices or " +
                 "levels to forecast its future trends. A chartist essentially looks for well-known patterns such as " +
                 "head-and-shoulders or support and resistance levels in securities so as to trade them more profitably."
-            }];
-
-        function finder() {
-            for (i in statsboiler) {
-                if (nextStatPage == statsboiler[i].code) {
-                    break;
-                }
-
             }
-            return i;
         };
 
-        var ourchart = finder();
+        var ourchart = statsboiler[nextStatPage];
 
-        $scope.info = statsboiler[ourchart];
+        $scope.info = ourchart;
         var data = {
-            labels: statsboiler[ourchart].labels,
-            series: statsboiler[ourchart].series
+            labels: ourchart.labels,
+            series: ourchart.series
         };
-        if (statsboiler[ourchart].borlorp == 'line') {
+        if (ourchart.borlorp == 'line') {
             new Chartist.Line('.ct-chart', data);
         }
-        if (statsboiler[ourchart].borlorp == 'bar') {
+        if (ourchart.borlorp == 'bar') {
             new Chartist.Bar('.ct-chart', data);
         }
-        if (statsboiler[ourchart].borlorp == 'pie') {
+        if (ourchart.borlorp == 'pie') {
             new Chartist.Pie('.ct-chart', data);
             var options = {
                 labelInterpolationFnc: function (value) {
@@ -253,8 +244,8 @@ angular.module('starter.controllers', [])
                 code: 'neden',
                 name: 'Why We Should Use Ipad',
                 img: "img/app1.jpeg",
-                description1: "Many families are particularly interested in helping their child learn to talk using an iPad.   I recommend you work closely with your therapist on how to incorporate an iPad into the treatment plan. In the meantime here are some tips to get you started: What to look for in an app:  Lots of pictures or photographs! The app should speak the word when the picture is touched.  It’s also nice if you can control how many pictures are displayed at a time, and make your own categorization system to keep track of all the different pictures.",
-                description2: "If you are using the iPad primarily to teach language, you might want to avoid putting games on it at first, at least until your child is consistently communicating.  Otherwise he may open games when you want him to be talking to you! If you’re using the iPad for communication, make sure it’s available all the time, you don’t want to take away your child’s voice.In addition to requesting, you also want to focus on commenting! See a blog here from the experts.This is just the beginning! Your child’s teacher or speech and language pathologist can help you start to use the iPad in conversations once your child has the basics."
+                description1: "Many families are particularly interested in helping their child learn to talk using an iPad.   I recommend you work closely with your therapist on how to incorporate an iPad into the treatment plan. In the meantime here are some tips to get you started: What to look for in an app:  Lots of pictures or photographs! The app should speak the word when the picture is touched.  Itï¿½s also nice if you can control how many pictures are displayed at a time, and make your own categorization system to keep track of all the different pictures.",
+                description2: "If you are using the iPad primarily to teach language, you might want to avoid putting games on it at first, at least until your child is consistently communicating.  Otherwise he may open games when you want him to be talking to you! If youï¿½re using the iPad for communication, make sure itï¿½s available all the time, you donï¿½t want to take away your childï¿½s voice.In addition to requesting, you also want to focus on commenting! See a blog here from the experts.This is just the beginning! Your childï¿½s teacher or speech and language pathologist can help you start to use the iPad in conversations once your child has the basics."
             },
             {
                 code: 'nedir',
