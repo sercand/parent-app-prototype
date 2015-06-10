@@ -103,3 +103,6 @@ button.button.button-full.button-calm.sidebyside.delmargin.downloadButton{
 .item-body p {
     margin-top: 0px;
 }
+.wiki p {
+    font-size: 18px;
+}
