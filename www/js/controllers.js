@@ -362,18 +362,13 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('MyAppsCtrl', function ($scope) {
-        $scope.games = [
-            {link: './#', enableFriends: true, name: 'oyun1'},
-            {link: './#', enableFriends: true, name: 'oyun2'},
-            {link: './#', enableFriends: true, name: 'oyun3'},
-            {link: './#', enableFriends: true, name: 'oyun4'},
-            {link: './#', enableFriends: false, name: 'oyun5'},
-            {link: './#', enableFriends: false, name: 'oyun6'},
-            {link: './#', enableFriends: false, name: 'oyun7'},
-            {link: './#', enableFriends: false, name: 'oyun8'},
-            {link: './#', enableFriends: false, name: 'oyun9'}
-        ];
+    .controller('MyAppsCtrl', function ($scope, Auth) {
+        $scope.games = Auth.games;
+
+        $scope.stateChanged = function (game) {
+            Auth.changeGameState(game.id, game.active);
+        };
+
     })
 
 
