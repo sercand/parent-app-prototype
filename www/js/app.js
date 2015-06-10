@@ -117,6 +117,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.auth'])
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/dash');
-
+        var loggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+        console.log(loggedIn);
+        $urlRouterProvider.otherwise(loggedIn ? '/tab/dash' : '/login');
     });

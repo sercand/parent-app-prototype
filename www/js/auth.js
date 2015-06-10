@@ -14,7 +14,11 @@ angular.module('starter.auth', [])
                 localStorage.setItem(key, JSON.stringify(value))
             },
             getObject: function (key) {
-                return JSON.parse(localStorage.getItem(key) || '{}');
+                try {
+                    return JSON.parse(localStorage.getItem(key) || '{}');
+                } catch (err) {
+                    return {}
+                }
             }
         }
     })
@@ -34,8 +38,8 @@ angular.module('starter.auth', [])
             }
         };
 
-        authService.serverUrl = "http://localhost:6001";
-        //  authService.serverUrl = "http://10.10.1.81:3000";
+        //authService.serverUrl = "http://localhost:6001";
+        authService.serverUrl = "http://46.101.185.157:6001";
         authService.apiUrl = authService.serverUrl + "/api/v1";
 
 
@@ -153,7 +157,46 @@ angular.module('starter.auth', [])
                 });
         };
 
+        authService.games = [];
 
+        function getGame(game) {
+            $http.get(authService.apiUrl + '/game/' + game.id)
+                .success(function (data) {
+                    if (data.success) {
+                        game.data = data.data;
+                        authService.games.push(game);
+                    }
+                })
+                .error(function (data) {
+                    console.log("ERROR", data);
+                });
+        }
+
+        function loadGames(games) {
+            for (var i = 0; i < games.length; i++) {
+                getGame(games[i]);
+            }
+        }
+
+        authService.changeGameState = function (gameid, newState, done) {
+            var postData = {
+                game_id: gameid
+            };
+            var url = authService.apiUrl + '/parent/' + authService.parentId + (newState ? '/activategame' : '/disablegame');
+
+            $http.post(url, postData).
+                success(function () {
+                    if (done)
+                        done();
+                }).
+                error(function (data, status) {
+                    console.error("login: " + JSON.stringify(data) + " " + status);
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status
+                    if (done)
+                        done(data);
+                });
+        };
         if (authService.isLoggedIn) {
             authService.getParentData(authService.parentId, function (err, doc) {
                 if (err) {
@@ -165,6 +208,7 @@ angular.module('starter.auth', [])
                         return;
                     }
                     setChildrenData(docChild);
+                    loadGames(docChild.games);
                 });
             });
         }
