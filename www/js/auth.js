@@ -38,8 +38,7 @@ angular.module('starter.auth', [])
             }
         };
 
-        //authService.serverUrl = "http://localhost:6001";
-        authService.serverUrl = "http://46.101.185.157:6001";
+        authService.serverUrl = "http://192.168.1.24:6001";
         authService.apiUrl = authService.serverUrl + "/api/v1";
 
 
